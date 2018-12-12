@@ -5,7 +5,7 @@ import re
 WORD_RE = re.compile(r"[\w']+")
 
 
-class MRWordMaxLength(MRJob):
+class MRMaxWordLength(MRJob):
 
     def mapper(self, _, line):
         for word in WORD_RE.findall(line):
@@ -17,7 +17,7 @@ class MRWordMaxLength(MRJob):
 
 
 if __name__ == '__main__':
-    MRWordFreqCount.run()
+    MRMaxWordLength.run()
     
 #result:
 # root@quickstart:/# hadoop fs -cat "hdfs:///user/root/task1_res/*"
