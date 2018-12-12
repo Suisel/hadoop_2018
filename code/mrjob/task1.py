@@ -2,7 +2,7 @@ from mrjob.job import MRJob
 from mrjob.protocol import TextProtocol
 import re
 
-WORD_RE = re.compile(r"[\w']+")
+WORD_RE = re.compile(r"[\w]+")
 
 
 class MRMaxWordLength(MRJob):
@@ -19,5 +19,5 @@ class MRMaxWordLength(MRJob):
 if __name__ == '__main__':
     MRMaxWordLength.run()
     
-#result:
+# result:
 # 63	"rindfleischetikettierungs\u00fcberwachungsaufgaben\u00fcbertragungsgesetz"

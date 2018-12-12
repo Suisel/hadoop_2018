@@ -1,7 +1,6 @@
 from mrjob.job import MRJob
 from mrjob.protocol import TextProtocol
 import re
-from statistics import mean
 
 WORD_RE = re.compile(r"[\w']+")
 
