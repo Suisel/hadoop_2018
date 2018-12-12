@@ -23,3 +23,6 @@ class MRAvgWordLength(MRJob):
 
 if __name__ == '__main__':
     MRAvgWordLength.run()
+
+# result:
+# null  6.057031234327786
