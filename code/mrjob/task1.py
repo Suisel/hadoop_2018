@@ -5,7 +5,7 @@ import re
 WORD_RE = re.compile(r"[\w']+")
 
 
-class MRWordFreqCount(MRJob):
+class MRMaxWordLength(MRJob):
 
     def mapper(self, _, line):
         for word in WORD_RE.findall(line):
@@ -17,4 +17,4 @@ class MRWordFreqCount(MRJob):
 
 
 if __name__ == '__main__':
-    MRWordFreqCount.run()
+    MRMaxWordLength.run()
