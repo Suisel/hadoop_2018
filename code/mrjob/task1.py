@@ -18,3 +18,7 @@ class MRWordFreqCount(MRJob):
 
 if __name__ == '__main__':
     MRWordFreqCount.run()
+    
+#result:
+# root@quickstart:/# hadoop fs -cat "hdfs:///user/root/task1_res/*"
+# 63	"rindfleischetikettierungs\u00fcberwachungsaufgaben\u00fcbertragungsgesetz"
