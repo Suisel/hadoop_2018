@@ -1,11 +1,13 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 import re
-import json
 
 WORD_RE = re.compile(r"[A-Za-zА-Яа-я]+")
-UPPER_RE = re.compile(r"A-ZА-Я")
 
+
+def split_with_re(line, re_compiler=WORD_RE):
+    translator = str.maketrans(string.punctuation, ' ' * len(string.punctuation))
+    return re_compiler.findall(line.translate(translator))
 
 class MRWordFreqCount(MRJob):
 
@@ -28,7 +30,7 @@ class MRWordFreqCount(MRJob):
                 lower_count += 1
 
         if (lower_count + upper_count) > 10 and upper_count > (lower_count + upper_count) / 2:
-            yield word, (upper_count, lower_count)
+            yield word, (upper_count, lower_count, upper_count + lower_count)
 
 if __name__ == '__main__':
     MRWordFreqCount.run()
