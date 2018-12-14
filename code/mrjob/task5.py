@@ -1,13 +1,13 @@
 from mrjob.job import MRJob
 import re
 
-from mrjob.protocol import TextProtocol
+from mrjob.protocol import TextProtocol, ReprProtocol
 
 WORD_RE = re.compile(r" [a-zа-я][a-zа-я]\.")
 threshold = 50
 
 class MRFindAbbreviation(MRJob):
-    OUTPUT_PROTOCOL = TextProtocol
+    OUTPUT_PROTOCOL = ReprProtocol
 
     def mapper(self, _, line):
         for word in WORD_RE.findall(line):
