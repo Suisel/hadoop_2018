@@ -1,13 +1,13 @@
 from mrjob.job import MRJob
 import re
-from mrjob.protocol import ReprProtocol
-from statistics import median_high
+
+from mrjob.protocol import TextProtocol
 
 WORD_RE = re.compile(r" [a-zа-я][a-zа-я]\.")
 threshold = 50
 
 class MRFindAbbreviation(MRJob):
-
+    OUTPUT_PROTOCOL = TextProtocol
 
     def mapper(self, _, line):
         for word in WORD_RE.findall(line):
